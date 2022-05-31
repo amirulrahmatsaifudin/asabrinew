@@ -1,10 +1,11 @@
-package com.example.asabri;
+package com.example.asabri.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class Login extends AppCompatActivity {
+import com.example.asabri.R;
+
+public class LoginActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
