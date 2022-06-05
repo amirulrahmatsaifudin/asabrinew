@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerifikasiOtpFinishActivity"
+    android:background="@drawable/background1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="115dp"
+            android:background="@drawable/toolbar_bawah">
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/linehome"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="50dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Verify Phone"
+                android:textSize="28dp"
+                android:textFontWeight="500"
+                android:textColor="@color/biru"
+                android:fontFamily="@font/mulish"
+                android:layout_marginTop="48dp"
+                android:layout_above="@+id/et_email"/>
+            <TextView
+                android:layout_below="@+id/judul"
+                android:id="@+id/textbody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Enter the code sent to "
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textFontWeight="400"
+                android:textColor="@color/colorTextabu"
+                android:fontFamily="@font/mulish"
+                android:layout_marginTop="28dp"
+                android:layout_above="@+id/et_email"/>
+
+
+            <Button
+                android:id="@+id/btn_phone1"
+                android:layout_width="365dp"
+                android:layout_height="73dp"
+                android:layout_marginTop="629dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button"
+                android:layout_below="@+id/input"
+                android:text="Send Code"
+                android:fontFamily="@font/mulish"
+                android:textFontWeight="600"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="19dp"
+                />
+        </RelativeLayout>
+</RelativeLayout >

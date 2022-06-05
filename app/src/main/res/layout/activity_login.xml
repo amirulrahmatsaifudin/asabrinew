@@ -5,25 +5,21 @@
     android:layout_height="match_parent"
     android:background="@drawable/background1"
     tools:context=".activity.LoginActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logoputih" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="174dp"
-                android:layout_height="47dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="77dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/logoputih" />
+        android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/logo"
-                android:layout_marginTop="152dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="300dp"
                 android:background="@drawable/toolbar_bawah">
                 <ImageView
                     android:id="@+id/line"
@@ -45,27 +41,32 @@
                     android:textColor="@color/biru"
                     android:fontFamily="@font/mulish"
                     android:layout_marginTop="48dp"
-                    android:layout_above="@+id/et_email"/>
+                    android:layout_above="@+id/et_nopenisun"/>
                 <EditText
                     android:layout_below="@+id/line"
-                    android:id="@+id/et_email"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/et_nopenisun"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_centerHorizontal="true"
-                    android:paddingLeft="20dp"
                     android:layout_marginTop="48dp"
-                    android:hint="Email"
+                    android:hint="No Pensiun"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_profile"
                     android:inputType="text"/>
                 <EditText
-                    android:layout_below="@+id/et_email"
+                    android:layout_below="@+id/et_nopenisun"
                     android:id="@+id/et_password"
-                    android:layout_width="wrap_content"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_marginTop="12dp"
                     android:hint="Password"
-                    android:paddingLeft="20dp"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawableEnd="@drawable/ic_hide"
+                    android:padding="18dp"
+                    android:drawablePadding="20dp"
                     android:layout_centerHorizontal="true"/>
                 <TextView
                     android:id="@+id/tv_lupapassword"
@@ -87,16 +88,27 @@
                     android:layout_below="@+id/tv_lupapassword"
                     android:layout_marginTop="37dp"
                     android:layout_centerHorizontal="true">
+
                     <Button
+                        android:id="@+id/btn_login"
                         android:layout_width="270dp"
                         android:layout_height="73dp"
-                        android:background="@drawable/buttonlogin"
-                        />
-                    <Button
-                        android:layout_width="76dp"
-                        android:layout_height="73dp"
+                        android:background="@drawable/button"
+                        android:text="Sign in with password"
+                        android:fontFamily="@font/mulish"
+                        android:textFontWeight="600"
+                        android:textAllCaps="false"
+                        android:textColor="#ffffff"
+                        android:textSize="19dp"
+
+                       />
+                    <ImageButton
+                        android:id="@+id/btn_faceid"
+                        android:layout_width="73dp"
+                        android:layout_height="76dp"
+                        android:background="@drawable/button"
                         android:layout_marginLeft="19dp"
-                        />
+                        android:src="@drawable/face"/>
                 </LinearLayout>
 
                 <TextView
@@ -122,10 +134,11 @@
                     android:fontFamily="@font/mulish"
                     android:textSize="19.6dp"
                     android:layout_centerHorizontal="true"/>
-
-
-
             </RelativeLayout>
-        </RelativeLayout>
+
     </ScrollView>
+    <include
+        android:id="@+id/progress_bar_login"
+        android:visibility="gone"
+        layout="@layout/layout_progress_bar_login"/>
 </RelativeLayout>

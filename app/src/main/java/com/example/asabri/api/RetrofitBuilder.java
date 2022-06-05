@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitBuilder {
 
-    public static final String BASE_URL = " ";
+    public static final String BASE_URL = "https://api-poc-asabri.picaso.id/api/v1/docs#/";
     // public static final String BASE_URL_IMAGES = "";
 
     private final static OkHttpClient client = buildClient();

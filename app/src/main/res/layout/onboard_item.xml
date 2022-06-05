@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+
+    <ImageView
+        android:id="@+id/iv_onboard"
+        android:layout_centerVertical="true"
+        android:layout_width="280dp"
+        android:layout_height="260dp"
+        android:layout_centerInParent="true"
+        android:scaleType="fitXY"
+        android:layout_below="@+id/logo"
+        android:src="@drawable/boarding1"
+        />
+    <TextView
+        android:id="@+id/tv_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_below="@+id/iv_onboard"
+        android:layout_centerHorizontal="true"
+        android:text="@string/ob_header1"
+        android:fontFamily="@font/mulish"
+        android:textSize="29dp"
+        android:textFontWeight="700"
+        android:textColor="@color/biru"/>
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:layout_below="@+id/tv_header"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/mulish"
+        android:gravity="center"
+        android:paddingLeft="59dp"
+        android:paddingRight="59dp"
+        android:textSize="15dp"
+        android:textFontWeight="300"
+        android:text="@string/ob_desc1"
+        android:textColor="@color/colorTextabu"/>
+</RelativeLayout>

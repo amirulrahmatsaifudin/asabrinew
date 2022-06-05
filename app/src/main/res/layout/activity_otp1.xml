@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context=".activity.otp.Otp1Activity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logoputih" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/logo"
+            android:layout_marginTop="300dp"
+            android:background="@drawable/toolbar_bawah">
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/linehome"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="50dp"
+                android:layout_centerHorizontal="true"
+                />
+            <TextView
+                android:id="@+id/judul"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Continue with Phone"
+                android:textSize="28dp"
+                android:textFontWeight="500"
+                android:textColor="@color/biru"
+                android:fontFamily="@font/mulish"
+                android:layout_marginTop="48dp"
+                android:layout_above="@+id/et_email"/>
+            <TextView
+                android:layout_below="@+id/judul"
+                android:id="@+id/textbody"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Enter your phone number to receive a \n pin code to sign up."
+                android:textSize="18dp"
+                android:gravity="center"
+                android:textFontWeight="400"
+                android:textColor="@color/colorTextabu"
+                android:fontFamily="@font/mulish"
+                android:layout_marginTop="28dp"
+                android:layout_above="@+id/et_email"/>
+            <LinearLayout
+                android:id="@+id/input"
+                android:layout_below="@+id/textbody"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="78dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="126dp"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/et_negara1"
+                    android:layout_width="106dp"
+                    android:layout_height="54dp"
+                    android:background="@drawable/edittext"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="20dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_logobendera"
+                    android:inputType="phone"/>
+                <EditText
+                    android:id="@+id/et_phone1"
+                    android:layout_width="236dp"
+                    android:layout_height="54dp"
+                    android:layout_marginLeft="21dp"
+                    android:background="@drawable/edittext"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="20dp"
+                    android:hint="___ ___ ___"
+                    android:inputType="phone"/>
+            </LinearLayout>
+            <Button
+                android:id="@+id/btn_phone1"
+                android:layout_width="365dp"
+                android:layout_height="73dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/button"
+                android:layout_below="@+id/input"
+                android:text="Send Code"
+                android:fontFamily="@font/mulish"
+                android:textFontWeight="600"
+                android:textAllCaps="false"
+                android:textColor="#ffffff"
+                android:textSize="19dp"
+                />
+
+
+        </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

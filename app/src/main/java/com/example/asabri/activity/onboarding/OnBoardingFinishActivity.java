@@ -1,10 +1,11 @@
-package com.example.asabri.activity;
+package com.example.asabri.activity.onboarding;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import com.example.asabri.R;
+import com.example.asabri.activity.LoginActivity;
 
 public class OnBoardingFinishActivity extends AppCompatActivity {
 private Button start;

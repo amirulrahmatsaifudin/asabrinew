@@ -5,26 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".activity.RegistrasiActivity">
+    tools:context=".activity.registrasi.RegistrasiActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logoputih" />
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="174dp"
-                android:layout_height="47dp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="77dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/logoputih" />
+        android:layout_height="match_parent">
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/logo"
-                android:layout_marginTop="152dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="350dp"
                 android:background="@drawable/toolbar_bawah">
                 <ImageView
                     android:id="@+id/line"
@@ -46,60 +42,110 @@
                     android:textColor="@color/biru"
                     android:fontFamily="@font/mulish"
                     android:layout_marginTop="48dp"
-                    android:layout_above="@+id/et_email"/>
+                    />
                 <EditText
                     android:layout_below="@+id/line"
                     android:id="@+id/et_NoPenisun"
-                    android:layout_width="wrap_content"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_centerHorizontal="true"
-                    android:paddingLeft="20dp"
                     android:hint="Nomer Pensiunan"
                     android:layout_marginTop="48dp"
-                    android:inputType="text"/>
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_pesan"
+
+                    />
                 <EditText
                     android:layout_below="@+id/et_NoPenisun"
                     android:id="@+id/et_NIK"
-                    android:layout_width="wrap_content"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_marginTop="12dp"
                     android:hint="NIK KTP"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_profile"
                     android:layout_centerHorizontal="true"/>
                 <EditText
                     android:layout_below="@+id/et_NIK"
-                    android:id="@+id/et_TTL"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/et_Tempat"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_marginTop="12dp"
-                    android:hint="Tempat, Tanggal Lahir"
-                    android:paddingLeft="20dp"
+                    android:hint="Tempat"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_location"
+                    android:layout_centerHorizontal="true"/>
+
+                <EditText
+                    android:layout_below="@+id/et_Tempat"
+                    android:id="@+id/et_TTL"
+                    android:layout_width="362.94dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/edittext"
+                    android:layout_marginTop="12dp"
+                    android:hint="Tanggal Lahir"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_calendar"
                     android:layout_centerHorizontal="true"/>
                 <EditText
                     android:layout_below="@+id/et_TTL"
                     android:id="@+id/et_Alamat"
-                    android:layout_width="wrap_content"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_marginTop="12dp"
                     android:hint="Alamat"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_home"
                     android:layout_centerHorizontal="true"/>
                 <EditText
                     android:layout_below="@+id/et_Alamat"
-                    android:id="@+id/et_password"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/et_katasandi"
+                    android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext_login"
+                    android:background="@drawable/edittext"
                     android:layout_marginTop="12dp"
                     android:hint="Password"
-                    android:paddingLeft="20dp"
+                    android:paddingLeft="18dp"
+                    android:drawablePadding="20dp"
+                    android:drawableStart="@drawable/ic_lock"
                     android:layout_centerHorizontal="true"/>
 
+                <EditText
+                    android:id="@+id/et_katasandi2"
+                    android:layout_width="362.94dp"
+                    android:layout_height="55dp"
+                    android:layout_below="@+id/et_katasandi"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/edittext"
+                    android:drawableStart="@drawable/ic_lock"
+                    android:drawablePadding="20dp"
+                    android:hint="Re-Type Password"
+                    android:paddingLeft="18dp" />
+                <Button
+                    android:id="@+id/btn_regist"
+                    android:layout_width="365dp"
+                    android:layout_height="73dp"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="53dp"
+                    android:layout_marginBottom="40dp"
+                    android:layout_below="@+id/et_katasandi2"
+                    android:background="@drawable/button"
+                    android:text="Create account"
+                    android:fontFamily="@font/mulish"
+                    android:textFontWeight="600"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"/>
             </RelativeLayout>
-        </RelativeLayout>
-    </ScrollView>
+      </ScrollView>
 </RelativeLayout>

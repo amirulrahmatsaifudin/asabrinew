@@ -3,31 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".activity.OnBoardingFinishActivity">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+    tools:context=".activity.onboarding.OnBoardingFinishActivity">
+
        <RelativeLayout
            android:layout_width="match_parent"
-           android:layout_height="wrap_content">
+           android:layout_height="match_parent">
 
            <ImageView
                 android:id="@+id/logo"
                 android:layout_width="174dp"
                 android:layout_height="47dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="77dp"
+                android:layout_marginTop="50dp"
                 android:scaleType="fitXY"
                 android:src="@drawable/logo" />
              <ImageView
-                android:layout_marginTop="22dp"
+                android:layout_marginTop="77dp"
                 android:id="@+id/iv_motto"
                  android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="536dp"
                 android:layout_centerHorizontal="true"
-                android:src="@drawable/onboardingfinish"
+                android:src="@drawable/boardingfinish"
                 android:scaleType="fitXY"
                 android:layout_below="@+id/logo"
             />
@@ -40,9 +38,9 @@
                 android:layout_marginTop="83dp"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/button"
+                android:text="Get started"
                 android:elevation="30dp"
                 android:fontFamily="@font/mulish"
-                android:text="Get Started"
                 android:textFontWeight="600"
                 android:textSize="19sp" />
             <TextView
@@ -56,6 +54,6 @@
                 android:textSize="15sp"
                 android:layout_marginBottom="40dp"/>
        </RelativeLayout>
-    </ScrollView>
+
 
 </RelativeLayout>

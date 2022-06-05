@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.OnBoardingActivity">
+    android:background="@drawable/background"
+    tools:context=".activity.onboarding.OnBoardingActivity">
     <ImageView
         android:id="@+id/logo"
         android:layout_width="174dp"
@@ -13,11 +14,50 @@
         android:layout_marginTop="77dp"
         android:scaleType="fitXY"
         android:src="@drawable/logo" />
-    <FrameLayout
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/pager_introduction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/viewPagerCountDots" />
+    <ImageView
+        android:id="@+id/imageend"
+        android:layout_width="match_parent"
+        android:layout_height="480dp"
+        android:layout_centerInParent="true"
+        android:src="@drawable/boardingfinish"
         android:scaleType="fitXY"
-        android:id="@+id/frame_layout"/>
+        android:layout_below="@+id/logo"
+        android:visibility="invisible"
+        />
+    <LinearLayout
+        android:id="@+id/viewPagerCountDots"
+        android:layout_width="match_parent"
+        android:layout_height="16dp"
+        android:layout_above="@+id/ll_footer"
+        android:layout_marginBottom="12dp"
+        android:layout_alignParentLeft="true"
+        android:gravity="center"
+        android:orientation="horizontal" />
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:id="@+id/ll_footer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btn_get_started"
+            android:layout_width="365dp"
+            android:layout_height="73dp"
+            android:background="@drawable/button"
+            android:text="Get started"
+            android:textAllCaps="false"
+            android:textSize="19dp"
+            android:layout_weight="400"
+            android:visibility="invisible"
+            android:layout_gravity="center_horizontal"
+            />
+    </LinearLayout>
 
 
 </RelativeLayout>

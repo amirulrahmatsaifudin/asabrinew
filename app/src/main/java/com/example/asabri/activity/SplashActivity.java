@@ -9,7 +9,8 @@ import android.os.Handler;
 import android.view.View;
 
 import com.example.asabri.R;
-import com.example.asabri.activity.OnBoardingActivity;
+import com.example.asabri.activity.onboarding.OnBoardingActivity;
+
 
 public class SplashActivity extends AppCompatActivity {
 

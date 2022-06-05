@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background1"
+    tools:context=".activity.LoginFaceidActivity">
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="77dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/logoputih" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/logo"
+                android:layout_marginTop="300dp"
+                android:background="@drawable/toolbar_bawah">
+                <ImageView
+                    android:id="@+id/line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/linehome"
+                    android:layout_marginTop="21dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_centerHorizontal="true"
+                    />
+                <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Masukkan ID pensiun"
+                    android:textSize="28dp"
+                    android:textFontWeight="500"
+                    android:textColor="@color/biru"
+                    android:fontFamily="@font/mulish"
+                    android:layout_marginTop="48dp"
+                    android:layout_above="@+id/et_email"/>
+                <EditText
+                    android:layout_below="@+id/line"
+                    android:id="@+id/et_NIK"
+                    android:layout_width="362.94dp"
+                    android:layout_height="55dp"
+                    android:background="@drawable/edittext"
+                    android:layout_centerHorizontal="true"
+                    android:paddingLeft="20dp"
+                    android:layout_marginTop="91dp"
+                    android:layout_marginBottom="138dp"
+                    android:hint="Email"
+                    android:inputType="text"/>
+                <Button
+                    android:id="@+id/btn_loginface"
+                    android:layout_width="365dp"
+                    android:layout_height="73dp"
+                    android:layout_centerHorizontal="true"
+                    android:background="@drawable/button"
+                    android:layout_below="@+id/et_NIK"
+                    android:text="Scan My Face"
+                    android:padding="20dp"
+                    android:drawableStart="@drawable/face"
+                    android:fontFamily="@font/mulish"
+                    android:textFontWeight="600"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="19dp"
+                    />
+                <TextView
+                    android:id="@+id/tv_dont"
+                    android:layout_below="@+id/btn_loginface"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="Lupa ID pensiun ?"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/mulish"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:id="@+id/tv_signup"
+                    android:layout_below="@+id/tv_dont"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="39dp"
+                    android:text="@string/minta_bantuan"
+                    android:textColor="@color/biru"
+                    android:textFontWeight="500"
+                    android:fontFamily="@font/mulish"
+                    android:textSize="19.6dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+    </ScrollView>
+</RelativeLayout>

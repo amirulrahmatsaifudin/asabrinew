@@ -4,4 +4,5 @@
     <color name="colorBackground">#0A1724</color>
     <color name="colorText"> #282B3B</color>
     <color name="colorTextabu"> #7D7D7D</color>
+    <color name="background_progress_bar">#CCF3F3F3</color>
 </resources>

@@ -4,5 +4,17 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_underline">Underline</string>
     <string name="example_underline"><u>Sign Up</u></string>
+    <string name="minta_bantuan"><u>Minta bantuan</u></string>
+    <string name="sign_in">Sign in with password</string>
+    <string name="ob_header1">Biometric Verify</string>
+    <string name="ob_header2">Fastest Approval</string>
+    <string name="ob_header3">Online Request</string>
 
+
+    <string name="ob_desc1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio vitae faucibus tempus scelerisque blandit id pretium
+ faucibus nec.</string>
+    <string name="ob_desc2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio vitae faucibus tempus scelerisque blandit id pretium
+ faucibus nec.</string>
+    <string name="ob_desc3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Odio vitae faucibus tempus scelerisque blandit id pretium
+ faucibus nec.</string>
 </resources>

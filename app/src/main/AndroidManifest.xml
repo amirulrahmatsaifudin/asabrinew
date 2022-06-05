@@ -7,19 +7,32 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.RegistrasiActivity"></activity>
+        <activity android:name=".VerifikasiOtpFinishActivity"></activity>
+        <activity android:name=".VerifikasiOtp1Activity" />
+        <activity android:name=".VerifikasiOtpActivity" />
+        <activity android:name=".activity.otp.Otp1Activity" />
+        <activity android:name=".activity.registrasi.Registrasi3Activity" />
+        <activity android:name=".activity.registrasi.Registrasi2Activity" />
+        <activity android:name=".activity.otp.OtpActivity" />
+        <activity android:name=".activity.FaceRecognitiionctivity" />
+        <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.LoginFaceidActivity" />
+        <activity android:name=".activity.ForgotPasswordActivity" />
+        <activity android:name=".activity.registrasi.RegistrasiActivity" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.SplashActivity" />
         <activity
-            android:name=".activity.OnBoardingActivity"
+            android:name=".activity.onboarding.OnBoardingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.OnBoardingFinishActivity"
+            android:name=".activity.onboarding.OnBoardingFinishActivity"
             tools:ignore="DuplicateActivity" />
     </application>
 
