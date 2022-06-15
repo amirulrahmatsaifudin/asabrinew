@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Asabri/app/src/main/res/drawable/backgoundbiru.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/background.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/backgroundhome1.xml" value="0.2105" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/backgroundhome2.xml" value="0.2105" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/btn_apply.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_hide.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_logout.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_pesan.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_profile.xml" value="0.17" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_show.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/ic_stroke_3.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/drawable/subtract.xml" value="0.198" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_authentication_biometric.xml" value="0.2" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_face_verification.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_face_verivication.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_home.xml" value="0.18" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_login.xml" value="0.22" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_login_faceid.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_main.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_on_boarding.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_on_boarding_finish.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_otp.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_otp1.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_registrasi.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_registrasi3.xml" value="0.12215528781793843" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_registrasi_succes.xml" value="0.15" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_verifikasi_otp.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_verifikasi_otp1.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_verifikasi_otp_finish.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/activity_webview.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/backgroundhome1.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/layout/onboard_item.xml" value="0.13243243243243244" />
+        <entry key="..\:/Asabri/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2115" />
+        <entry key="..\:/Asabri/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.2115" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
+</project>
