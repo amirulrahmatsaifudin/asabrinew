@@ -1,13 +1,15 @@
-package com.example.asabri;
+package com.example.asabri.activity.otp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class VerifikasiOtp1Activity extends AppCompatActivity {
+import com.example.asabri.R;
+
+public class VerifikasiOtpActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verifikasi_otp1);
+        setContentView(R.layout.activity_verifikasi_otp);
     }
 }

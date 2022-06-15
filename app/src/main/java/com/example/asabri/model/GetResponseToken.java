@@ -12,6 +12,9 @@ public class GetResponseToken {
     @SerializedName("success")
     @Expose
     private AccessToken data;
+    @SerializedName("detail")
+    @Expose
+    private DetailOtp detail;
 
     public Integer getStatus() {
         return status;
@@ -35,5 +38,13 @@ public class GetResponseToken {
 
     public void setData(AccessToken data) {
         this.data = data;
+    }
+
+    public void setDetail(DetailOtp detail) {
+        this.detail = detail;
+    }
+
+    public DetailOtp getDetail() {
+        return detail;
     }
 }

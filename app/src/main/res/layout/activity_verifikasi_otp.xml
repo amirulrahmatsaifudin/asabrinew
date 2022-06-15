@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background1"
-    tools:context=".VerifikasiOtpActivity">
+    tools:context=".activity.otp.VerifikasiOtpActivity">
     <ImageView
         android:id="@+id/logo"
         android:layout_width="174dp"
@@ -112,20 +112,21 @@
                     android:layout_marginLeft="12dp"
                     />
             </LinearLayout>
+
             <Button
                 android:id="@+id/btn_phone1"
                 android:layout_width="365dp"
                 android:layout_height="73dp"
+                android:layout_below="@+id/input"
                 android:layout_centerHorizontal="true"
                 android:background="@drawable/button"
-                android:layout_below="@+id/input"
-                android:text="Send Code"
                 android:fontFamily="@font/mulish"
-                android:textFontWeight="600"
+                android:text="Send Code"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
-                android:textSize="19dp"
-                />
+                android:layout_alignParentBottom="true"
+                android:textFontWeight="600"
+                android:textSize="19dp" />
 
 
         </RelativeLayout>

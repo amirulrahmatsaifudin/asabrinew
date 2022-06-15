@@ -6,25 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".activity.registrasi.Registrasi3Activity">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/subtract"
-            android:layout_centerInParent="true"/>
-        <ImageButton
-            android:id="@+id/btn_back_registrasi3"
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@drawable/ic_back"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="30dp"
 
-            />
         <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/previewView"
-            />
+            android:layout_centerInParent="true" />
+        <ImageView
+            android:id="@+id/background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/subtract" />
         <TextView
             android:layout_above="@+id/frame"
             android:layout_marginBottom="81dp"
@@ -50,8 +43,8 @@
             android:textColor="#ffffff"/>
         <ImageView
             android:id="@+id/frame"
-            android:layout_width="337dp"
-            android:layout_height="399dp"
+            android:layout_width="335dp"
+            android:layout_height="380dp"
             android:layout_centerInParent="true"
             android:background="@drawable/frame" />
         <TextView
@@ -67,7 +60,7 @@
             android:gravity="center"
             android:textColor="#ffffff"/>
         <Button
-            android:id="@+id/btn_submite"
+            android:id="@+id/btn_submite11"
             android:layout_width="343dp"
             android:layout_height="54dp"
             android:layout_centerHorizontal="true"
@@ -83,6 +76,6 @@
             />
 
 
-   
+
 
 </RelativeLayout>

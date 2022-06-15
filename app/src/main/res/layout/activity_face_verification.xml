@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.FaceVerificationActivity">
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camera"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/background1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="@drawable/subtract" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/frame1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="81dp"
+        android:fontFamily="@font/mulish"
+        android:text="Face verification"
+        android:textColor="#ffffff"
+        android:textFontWeight="600"
+        android:textSize="29dp" />
+    <TextView
+        android:layout_above="@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add face recognition into account"
+        android:fontFamily="@font/mulish"
+        android:textFontWeight="500"
+        android:textSize="19dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
+    <ImageView
+        android:id="@+id/frame1"
+        android:layout_width="335dp"
+        android:layout_height="380dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/frame" />
+    <TextView
+        android:layout_below="@+id/frame1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please look Front a camera"
+        android:fontFamily="@font/mulish"
+        android:textFontWeight="500"
+        android:textSize="19dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="41dp"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
+
+    <Button
+        android:id="@+id/takephoto"
+        android:layout_width="343dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/frame1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="81dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/mulish"
+        android:text="Scan Now"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textFontWeight="600"
+        android:textSize="19dp" />
+
+</RelativeLayout>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VerifikasiOtpFinishActivity"
+    tools:context=".activity.otp.VerifikasiOtpFinishActivity"
     android:background="@drawable/background1">
 
         <RelativeLayout
@@ -54,16 +54,16 @@
                 android:id="@+id/btn_phone1"
                 android:layout_width="365dp"
                 android:layout_height="73dp"
-                android:layout_marginTop="629dp"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/button"
                 android:layout_below="@+id/input"
-                android:text="Send Code"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="500dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/button"
                 android:fontFamily="@font/mulish"
-                android:textFontWeight="600"
+                android:text="Send Code"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
-                android:textSize="19dp"
-                />
+                android:textFontWeight="600"
+                android:textSize="19dp" />
         </RelativeLayout>
 </RelativeLayout >

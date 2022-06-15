@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,8 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
 import com.example.asabri.R;
 import com.example.asabri.activity.LoginActivity;
 
@@ -26,11 +29,12 @@ public class OnBoardingActivity extends AppCompatActivity {
         private ViewPager onboard_pager;
         private OnBoard_Adapter mAdapter;
         private ImageView onboarfinish;
-        private Button btn_get_started;
+        private TextView btn_get_started;
         int previous_pos=0;
+        private Context context;
 
 
-        ArrayList<OnBoardItem> onBoardItems=new ArrayList<>();
+         ArrayList<OnBoardItem> onBoardItems=new ArrayList<>();
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +43,7 @@ public class OnBoardingActivity extends AppCompatActivity {
 
             onboard_pager = (ViewPager) findViewById(R.id.pager_introduction);
             pager_indicator = (LinearLayout) findViewById(R.id.viewPagerCountDots);
-            onboarfinish = (ImageView) findViewById(R.id.imageend);
-            btn_get_started = (Button) findViewById(R.id.btn_get_started);
+            btn_get_started = (TextView) findViewById(R.id.btn_get_started);
 
             loadData();
 
@@ -63,15 +66,11 @@ public class OnBoardingActivity extends AppCompatActivity {
                     }
 
                     dots[position].setImageDrawable(ContextCompat.getDrawable(OnBoardingActivity.this, R.drawable.selected_item_dot));
-
-
                     int pos=position+1;
-
                     if(pos==dotsCount&&previous_pos==(dotsCount-1))
-                        loadFirstScreen();
+                        show_animation();
                     else if(pos==(dotsCount-1)&&previous_pos==dotsCount)
-                        loaddLastScreen();
-
+                        hide_animation();
                     previous_pos=pos;
                 }
 
@@ -86,7 +85,7 @@ public class OnBoardingActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     //open main activity
-                    Intent mainActivity = new Intent(getApplicationContext(),LoginActivity.class);
+                    Intent mainActivity = new Intent(getApplicationContext(),OnBoardingFinishActivity.class);
                     startActivity(mainActivity);
                     finish();
                 }
@@ -109,6 +108,7 @@ public class OnBoardingActivity extends AppCompatActivity {
                 item.setImageID(imageId[i]);
                 item.setTitle(getResources().getString(header[i]));
                 item.setDescription(getResources().getString(desc[i]));
+
                 onBoardItems.add(item);
             }
         }
@@ -131,21 +131,51 @@ public class OnBoardingActivity extends AppCompatActivity {
             dots[0].setImageDrawable(ContextCompat.getDrawable(OnBoardingActivity.this, R.drawable.selected_item_dot));
         }
 
-        private void loaddLastScreen(){
-            pager_indicator.setVisibility(View.INVISIBLE);
-            onboard_pager.setVisibility(View.INVISIBLE);
-            pager_indicator.setVisibility(View.INVISIBLE);
-            btn_get_started.setVisibility(View.VISIBLE);
-            onboarfinish.setVisibility(View.VISIBLE);
-        }
+    public void show_animation()
+    {
+        Animation show = AnimationUtils.loadAnimation(this, R.anim.slide_up_anim);
+        btn_get_started.startAnimation(show);
+        show.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+                btn_get_started.setVisibility(View.VISIBLE);
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                btn_get_started.clearAnimation();
+            }
+        });
 
-        private  void  loadFirstScreen(){
-            pager_indicator.setVisibility(View.VISIBLE);
-            onboard_pager.setVisibility(View.VISIBLE);
-            pager_indicator.setVisibility(View.VISIBLE);
-            btn_get_started.setVisibility(View.INVISIBLE);
-            onboarfinish.setVisibility(View.INVISIBLE);
-        }
+
+    }
+
+    // Button Topdown animation
+
+    public void hide_animation()
+    {
+        Animation hide = AnimationUtils.loadAnimation(this, R.anim.slide_down_anim);
+        btn_get_started.startAnimation(hide);
+        hide.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                btn_get_started.clearAnimation();
+                btn_get_started.setVisibility(View.GONE);
+
+            }
+
+        });
+
+
+    }
 
     }
 

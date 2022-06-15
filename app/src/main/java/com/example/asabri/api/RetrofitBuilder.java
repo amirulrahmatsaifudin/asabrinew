@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitBuilder {
 
-    public static final String BASE_URL = "https://api-poc-asabri.picaso.id/api/v1/docs#/";
+    public static final String BASE_URL = "https://api-poc-asabri.picaso.id/api/";
     // public static final String BASE_URL_IMAGES = "";
 
     private final static OkHttpClient client = buildClient();
@@ -24,6 +24,7 @@ public class RetrofitBuilder {
                     Request request = chain.request();
                     Request.Builder builder1 = request.newBuilder()
                             .addHeader("Accept", "application/json")
+                            .addHeader("Content-Type", "application/json")
                             .addHeader("Connection", "close");
 
                     request = builder1.build();

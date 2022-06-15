@@ -14,9 +14,10 @@ import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.LifecycleOwner;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
@@ -24,16 +25,16 @@ import android.os.Looper;
 import android.util.Base64;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.asabri.R;
-import com.example.asabri.activity.ForgotPasswordActivity;
-import com.example.asabri.activity.LoginActivity;
+import com.example.asabri.activity.otp.OtpActivity;
 import com.example.asabri.api.ApiService;
 import com.example.asabri.api.RetrofitBuilder;
 import com.example.asabri.api.TokenManager;
 import com.example.asabri.model.GetResponseToken;
 import com.google.common.util.concurrent.ListenableFuture;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -41,8 +42,13 @@ import java.util.Locale;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
-
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 
 public class Registrasi3Activity extends AppCompatActivity {
 
@@ -50,64 +56,28 @@ public class Registrasi3Activity extends AppCompatActivity {
     private int REQUEST_CODE_PERMISSIONS = 1001;
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"};
 
+    PreviewView mPreviewView;
+    ImageView mImageView;
+    Button captureImage;
+
     private ApiService service;
-    private TokenManager tokenManager;
     private Call<GetResponseToken> call;
 
-    PreviewView mPreviewView;
-    Button submit ;
-    ImageButton back;
-    Context rContext;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrasi3);
-        initcomponent2();
-        camera();
-     }
 
-    private void initcomponent2()
-    {
         mPreviewView = findViewById(R.id.previewView);
-        submit = findViewById(R.id.btn_submite);
-        back = findViewById(R.id.btn_back_registrasi3);
-        back.setOnClickListener(v -> startActivity(new Intent(Registrasi3Activity.this,Registrasi2Activity.class)));
+        captureImage = findViewById(R.id.btn_submite11);
 
-        rContext = this;
-
-
-
-
-    }
-
-    private void camera(){
         if(allPermissionsGranted()){
             startCamera(); //start camera if permission has been granted by user
         } else{
             ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
         }
-       }
-    private boolean allPermissionsGranted(){
-        for(String permission : REQUIRED_PERMISSIONS){
-            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
-                return false;
-            }
-        }
-        return true;
-    }
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if (requestCode == REQUEST_CODE_PERMISSIONS) {
-            if (allPermissionsGranted()) {
-                startCamera();
-            } else {
-                Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT).show();
-                this.finish();
-            }
-        }
 
-
+        service = RetrofitBuilder.createService(ApiService.class);
     }
 
     private void startCamera() {
@@ -123,6 +93,7 @@ public class Registrasi3Activity extends AppCompatActivity {
             }
         }, ContextCompat.getMainExecutor(this));
     }
+
     void bindPreview(@NonNull ProcessCameraProvider cameraProvider) {
         Preview preview = new Preview.Builder()
                 .build();
@@ -143,32 +114,64 @@ public class Registrasi3Activity extends AppCompatActivity {
         final ImageCapture imageCapture = builder
                 .setTargetRotation(this.getWindowManager().getDefaultDisplay().getRotation())
                 .build();
-
         preview.setSurfaceProvider(mPreviewView.createSurfaceProvider());
         Camera camera = cameraProvider.bindToLifecycle((LifecycleOwner)this, cameraSelector, preview, imageAnalysis, imageCapture);
 
-        submit.setOnClickListener(v -> {
-            Toast.makeText(Registrasi3Activity.this, "Submit successfully", Toast.LENGTH_SHORT).show();
-//            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-//            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
-//             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
-//            imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
-//                @Override
-//                public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
-//                    new Handler(Looper.getMainLooper()).post(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            Toast.makeText(Registrasi3Activity.this, "Submit successfully", Toast.LENGTH_SHORT).show();
-//                        }
-//                    });
-//                }
-//                @Override
-//                public void onError(@NonNull ImageCaptureException error) {
-//                    error.printStackTrace();
-//                }
-//            });
+        captureImage.setOnClickListener(v -> {
+            SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
+            ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
+            imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
+                @Override
+                public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                     //   RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-file"),file);
+                        //  MultipartBody.Part image = MultipartBody.Part.createFormData("image",file.getName(),requestFile);
+
+                        Intent intent = getIntent();
+                        String name = intent.getStringExtra("name");
+                        String mobile_number = intent.getStringExtra("mobile_number");
+                        String retirement_number = intent.getStringExtra("retirement_number");
+                        String nik_number = intent.getStringExtra("nik_number");
+                        String address = intent.getStringExtra("address");
+                        String date_of_birth = intent.getStringExtra("date_of_birth");
+                        String place_of_birth = intent.getStringExtra("place_of_birth");
+                        String password = intent.getStringExtra("password");
+                        String password_confirmation = intent.getStringExtra("password_confirmation");
+
+                        Bitmap bm = BitmapFactory.decodeFile(file.getName());
+                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                        bm.compress(Bitmap.CompressFormat.JPEG, 1000, baos);
+                        byte[] b = baos.toByteArray();
+                        String imagebase64 = Base64.encodeToString(b, Base64.DEFAULT);
+
+                        call = service.crete_user(name, mobile_number, retirement_number, nik_number, address, date_of_birth, place_of_birth, imagebase64, password, password_confirmation);
+                        call.enqueue(new Callback<GetResponseToken>() {
+                            @Override
+                            public void onResponse(Call<GetResponseToken> call, Response<GetResponseToken> response) {
+                                if (response.isSuccessful()) {
+                                    Toast.makeText(Registrasi3Activity.this, "sukses", Toast.LENGTH_SHORT).show();
+                                    Intent intentToOtp = new Intent(Registrasi3Activity.this, RegistrasiSuccesActivity.class);
+                                    startActivity(intentToOtp);
+                                }
+                            }
+
+                            @Override
+                            public void onFailure(Call<GetResponseToken> call, Throwable t) {
+                                Toast.makeText(Registrasi3Activity.this, t.getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    });
+                }
+
+                @Override
+                public void onError(@NonNull ImageCaptureException error) {
+                    error.printStackTrace();
+                }
+            });
         });
     }
+
     public String getBatchDirectoryName() {
         String app_folder_path = "";
         app_folder_path = Environment.getExternalStorageDirectory().toString() + "/images";
@@ -178,5 +181,24 @@ public class Registrasi3Activity extends AppCompatActivity {
         return app_folder_path;
     }
 
-
+    private boolean allPermissionsGranted(){
+        for(String permission : REQUIRED_PERMISSIONS){
+            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
+                return false;
+            }
+        }
+        return true;
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_CODE_PERMISSIONS) {
+            if (allPermissionsGranted()) {
+                startCamera();
+            } else {
+                Toast.makeText(this, "Permissions not granted by the user.", Toast.LENGTH_SHORT).show();
+                this.finish();
+            }
+        }
+    }
 }

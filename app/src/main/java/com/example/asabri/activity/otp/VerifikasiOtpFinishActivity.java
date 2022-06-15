@@ -5,12 +5,11 @@ import android.os.Bundle;
 
 import com.example.asabri.R;
 
-public class Otp1Activity extends AppCompatActivity {
+public class VerifikasiOtpFinishActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp1);
-
+        setContentView(R.layout.activity_verifikasi_otp_finish);
     }
 }

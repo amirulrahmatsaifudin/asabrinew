@@ -23,6 +23,7 @@
                 android:layout_height="match_parent"
                 android:layout_below="@+id/logo"
                 android:layout_marginTop="300dp"
+                android:layout_alignParentBottom="true"
                 android:background="@drawable/toolbar_bawah">
                 <ImageView
                     android:id="@+id/line"
@@ -45,34 +46,35 @@
                     android:fontFamily="@font/mulish"
                     android:layout_marginTop="48dp"
                     android:layout_above="@+id/et_email"/>
+
                 <EditText
-                    android:layout_below="@+id/line"
                     android:id="@+id/et_NIK"
                     android:layout_width="362.94dp"
                     android:layout_height="55dp"
-                    android:background="@drawable/edittext"
+                    android:layout_below="@+id/line"
                     android:layout_centerHorizontal="true"
-                    android:paddingLeft="20dp"
-                    android:layout_marginTop="91dp"
-                    android:layout_marginBottom="138dp"
+                    android:layout_marginTop="70dp"
+                    android:layout_marginBottom="80dp"
+                    android:background="@drawable/edittext"
                     android:hint="Email"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:paddingLeft="20dp" />
+
                 <Button
                     android:id="@+id/btn_loginface"
                     android:layout_width="365dp"
                     android:layout_height="73dp"
+                    android:layout_below="@+id/et_NIK"
                     android:layout_centerHorizontal="true"
                     android:background="@drawable/button"
-                    android:layout_below="@+id/et_NIK"
-                    android:text="Scan My Face"
-                    android:padding="20dp"
                     android:drawableStart="@drawable/face"
                     android:fontFamily="@font/mulish"
-                    android:textFontWeight="600"
+                    android:padding="20dp"
+                    android:text="Scan My Face"
                     android:textAllCaps="false"
                     android:textColor="#ffffff"
-                    android:textSize="19dp"
-                    />
+                    android:textFontWeight="600"
+                    android:textSize="19dp" />
                 <TextView
                     android:id="@+id/tv_dont"
                     android:layout_below="@+id/btn_loginface"

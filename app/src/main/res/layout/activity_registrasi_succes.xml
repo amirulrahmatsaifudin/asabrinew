@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.registrasi.RegistrasiSuccesActivity">
+    <ImageView
+        android:id="@+id/viewfoto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/subtract" />
+
+    <TextView
+        android:layout_above="@+id/frame"
+        android:layout_marginBottom="81dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Face Recogntiion"
+        android:fontFamily="@font/mulish"
+        android:textFontWeight="600"
+        android:textSize="29dp"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"/>
+    <TextView
+        android:layout_above="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add face recognition into account"
+        android:fontFamily="@font/mulish"
+        android:textFontWeight="500"
+        android:textSize="19dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="41dp"
+        android:gravity="center"
+        android:textColor="#ffffff"/>
+
+    <ImageView
+        android:id="@+id/frame"
+        android:layout_width="334dp"
+        android:layout_height="369dp"
+        android:layout_centerInParent="true"
+        android:background="@drawable/frame" />
+    <TextView
+        android:layout_below="@+id/frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Succes"
+        android:fontFamily="@font/mulish"
+        android:textFontWeight="600"
+        android:textSize="29dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:gravity="center"
+        android:textColor="#37F119"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="62dp"
+        android:fontFamily="@font/mulish"
+        android:gravity="center"
+        android:text="Great, let’s next"
+        android:textColor="#ffffff"
+        android:textFontWeight="500"
+        android:textSize="19dp" />
+
+    <Button
+        android:id="@+id/btn_submite11"
+        android:layout_width="343dp"
+        android:layout_height="54dp"
+        android:layout_below="@+id/frame"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="118dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/mulish"
+        android:text="Submite"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textFontWeight="600"
+        android:textSize="19dp" />
+
+
+</RelativeLayout>

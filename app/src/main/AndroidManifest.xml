@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.asabri">
+    package="com.example.asabri" >
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -16,24 +17,56 @@
         android:requestLegacyExternalStorage="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".VerifikasiOtpFinishActivity"></activity>
-        <activity android:name=".VerifikasiOtp1Activity" />
-        <activity android:name=".VerifikasiOtpActivity" />
-        <activity android:name=".activity.otp.Otp1Activity" />
-        <activity android:name=".activity.registrasi.Registrasi3Activity" />
-        <activity android:name=".activity.registrasi.Registrasi2Activity" />
-        <activity android:name=".activity.otp.OtpActivity" />
-        <activity android:name=".activity.FaceRecognitiionctivity" />
-        <activity android:name=".activity.HomeActivity" />
-        <activity android:name=".activity.LoginFaceidActivity" />
-        <activity android:name=".activity.ForgotPasswordActivity" />
-        <activity android:name=".activity.registrasi.RegistrasiActivity" />
-        <activity android:name=".activity.LoginActivity" />
-        <activity android:name=".activity.SplashActivity" />
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
+        <activity
+            android:name=".activity.FaceVerificationActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AuthenticationBiometricActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.registrasi.RegistrasiSuccesActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.WebviewActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.otp.VerifikasiOtpFinishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.otp.VerifikasiOtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.otp.OtpActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.FaceRecognitiionctivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginFaceidActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.registrasi.RegistrasiActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.registrasi.Registrasi3Activity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.onboarding.OnBoardingActivity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.SplashActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

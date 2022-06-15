@@ -14,14 +14,13 @@ import com.example.asabri.activity.onboarding.OnBoardingActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private static int SPLASH_TIME_OUT = 3000;
+    private static int SPLASH_TIME_OUT = 1200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        hideSystemUI(this);
 
         new Handler().postDelayed(() -> {
             startActivity(new Intent(SplashActivity.this, OnBoardingActivity.class));

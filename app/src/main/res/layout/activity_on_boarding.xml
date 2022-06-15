@@ -14,21 +14,13 @@
         android:layout_marginTop="77dp"
         android:scaleType="fitXY"
         android:src="@drawable/logo" />
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/pager_introduction"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/viewPagerCountDots" />
-    <ImageView
-        android:id="@+id/imageend"
-        android:layout_width="match_parent"
-        android:layout_height="480dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/boardingfinish"
-        android:scaleType="fitXY"
-        android:layout_below="@+id/logo"
-        android:visibility="invisible"
-        />
+
     <LinearLayout
         android:id="@+id/viewPagerCountDots"
         android:layout_width="match_parent"
@@ -38,25 +30,28 @@
         android:layout_alignParentLeft="true"
         android:gravity="center"
         android:orientation="horizontal" />
+
     <LinearLayout
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
         android:id="@+id/ll_footer"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical">
-        <Button
+
+        <TextView
             android:id="@+id/btn_get_started"
             android:layout_width="365dp"
             android:layout_height="73dp"
-            android:background="@drawable/button"
-            android:text="Get started"
-            android:textAllCaps="false"
-            android:textSize="19dp"
-            android:layout_weight="400"
-            android:visibility="invisible"
             android:layout_gravity="center_horizontal"
-            />
+            android:layout_weight="400"
+            android:fontFamily="@font/mulish"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@color/biru"
+            android:textFontWeight="600"
+            android:textSize="19dp"
+            android:visibility="gone" />
     </LinearLayout>
 
 

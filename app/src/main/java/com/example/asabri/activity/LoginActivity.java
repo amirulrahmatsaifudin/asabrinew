@@ -11,14 +11,12 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.example.asabri.R;
-import com.example.asabri.activity.registrasi.Registrasi3Activity;
 import com.example.asabri.activity.registrasi.RegistrasiActivity;
 import com.example.asabri.api.ApiService;
+import com.example.asabri.api.RetrofitBuilder;
 import com.example.asabri.api.TokenManager;
 import com.example.asabri.model.GetResponseToken;
-import com.google.firebase.iid.FirebaseInstanceId;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -31,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private ImageButton btnfaceid;
     private TextView tvforgot, tvsignup;
-
+    boolean passwordvisable;
     private View mProgressBar;
     private ProgressBar mCycleProgressBar;
 
@@ -57,24 +55,28 @@ public class LoginActivity extends AppCompatActivity {
         tvsignup = findViewById(R.id.tv_signup);
         mProgressBar = findViewById(R.id.progress_bar_login);
         mCycleProgressBar = mProgressBar.findViewById(R.id.progress_bar_cycle);
-        
+
     }
+
     private void navigate() {
         tvforgot.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, ForgotPasswordActivity.class)));
-        tvsignup.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, Registrasi3Activity.class)));
+        tvsignup.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, RegistrasiActivity.class)));
         btnfaceid.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, LoginFaceidActivity.class)));
         btnlogin.setOnClickListener(view -> login());
     }
+
     private void login() {
         String nopensiun = etnopensiun.getText().toString();
         String password = etpassword.getText().toString();
-
-        String token = FirebaseInstanceId.getInstance().getToken();
-        Log.w(TAG, "Token Firebase: " + token);
+        tokenManager = TokenManager.getInstance(getSharedPreferences("prefs", MODE_PRIVATE));
+        if (tokenManager.getToken().getToken() != null) {
+            startActivity(new Intent(this, HomeActivity.class));
+            finish();
+        }
+        service = RetrofitBuilder.createService(ApiService.class);
 
         mProgressBar.setVisibility(View.VISIBLE);
         mCycleProgressBar.setVisibility(View.VISIBLE);
-
         call = service.login(nopensiun, password);
         call.enqueue(new Callback<GetResponseToken>() {
             @Override
@@ -84,6 +86,8 @@ public class LoginActivity extends AppCompatActivity {
                     tokenManager.saveToken(response.body().getData());
                     startActivity(new Intent(self, HomeActivity.class));
                     finish();
+                }else {
+                    Toast.makeText(LoginActivity.this,"Gagal", Toast.LENGTH_SHORT).show();
                 }
                 mProgressBar.setVisibility(View.GONE);
                 mCycleProgressBar.setVisibility(View.GONE);
@@ -98,4 +102,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
 }
+
+

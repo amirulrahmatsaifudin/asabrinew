@@ -1,13 +1,16 @@
-package com.example.asabri;
+package com.example.asabri.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class VerifikasiOtpFinishActivity extends AppCompatActivity {
+import com.example.asabri.R;
+
+public class FaceVerificationActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_verifikasi_otp_finish);
+        setContentView(R.layout.activity_face_verification);
     }
 }
