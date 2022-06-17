@@ -14,122 +14,114 @@
         android:layout_marginTop="77dp"
         android:scaleType="fitXY"
         android:src="@drawable/logoputih" />
-    <ScrollView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/logo"
-            android:layout_marginTop="300dp"
-            android:background="@drawable/toolbar_bawah">
-            <ImageView
-                android:id="@+id/line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/linehome"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="50dp"
-                android:layout_centerHorizontal="true"
-                />
-            <TextView
-                android:id="@+id/judul"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Verify Phone"
-                android:textSize="28dp"
-                android:textFontWeight="500"
-                android:textColor="@color/biru"
-                android:fontFamily="@font/mulish"
-                android:layout_marginTop="48dp"
-                android:layout_above="@+id/et_email"/>
-            <TextView
-                android:layout_below="@+id/judul"
-                android:id="@+id/textbody"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="Enter the code sent to "
-                android:textSize="18dp"
-                android:gravity="center"
-                android:textFontWeight="400"
-                android:textColor="@color/colorTextabu"
-                android:fontFamily="@font/mulish"
-                android:layout_marginTop="28dp"
-                android:layout_above="@+id/et_email"/>
-            <TextView
-                android:id="@+id/nohp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:textFontWeight="400"
-                android:textColor="#000000"
-                android:fontFamily="@font/mulish"
-                android:layout_marginTop="5dp"
-                android:layout_below="@+id/textbody"/>
-            <LinearLayout
-                android:id="@+id/input"
-                android:layout_below="@+id/textbody"
-                android:layout_width="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="78dp"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="126dp"
-                android:orientation="horizontal">
-                <EditText
-                    android:id="@+id/et_kode1"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edittext"
-                    android:layout_centerHorizontal="true"
+        android:layout_height="match_parent"
 
-                    />
-                <EditText
-                    android:id="@+id/et_kode2"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edittext"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="12dp"
-                    />
-                <EditText
-                    android:id="@+id/et_kode3"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edittext"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="12dp"
-                    />
-                <EditText
-                    android:id="@+id/et_kode4"
-                    android:layout_width="55dp"
-                    android:layout_height="55dp"
-                    android:background="@drawable/edittext"
-                    android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="12dp"
-                    />
-            </LinearLayout>
+        android:layout_below="@+id/logo"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/toolbar_bawah">
 
-            <Button
-                android:id="@+id/btn_phone1"
-                android:layout_width="365dp"
-                android:layout_height="73dp"
-                android:layout_below="@+id/input"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/button"
-                android:fontFamily="@font/mulish"
-                android:text="Send Code"
-                android:textAllCaps="false"
-                android:textColor="#ffffff"
-                android:layout_alignParentBottom="true"
-                android:textFontWeight="600"
-                android:textSize="19dp" />
+        <ImageView
+            android:id="@+id/line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="21dp"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/linehome" />
+
+        <TextView
+            android:id="@+id/judul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/et_email"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/mulish"
+            android:text="Verify Phone"
+            android:textColor="@color/biru"
+            android:textFontWeight="500"
+            android:textSize="28dp" />
+
+        <TextView
+            android:id="@+id/textbody"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/judul"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/mulish"
+            android:gravity="center"
+            android:text="Enter the code sent to "
+            android:textColor="@color/colorTextabu"
+            android:textFontWeight="400"
+            android:textSize="18dp" />
+
+        <TextView
+            android:id="@+id/nohp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textbody"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/mulish"
+            android:gravity="center"
+            android:textColor="#000000"
+            android:textFontWeight="400"
+            android:textSize="18dp" />
+
+        <com.alimuzaffar.lib.pin.PinEntryEditText
+            android:id="@+id/otp_code_login"
+            android:layout_width="256dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nohp"
+            android:layout_centerHorizontal="true"
+            android:cursorVisible="false"
+            android:digits="1234567890"
+            android:fontFamily="@font/mulish"
+            android:inputType="number"
+            android:layoutDirection="ltr"
+            android:maxLength="4"
+            android:textIsSelectable="false"
+            android:textSize="40dp"
+            android:textStyle="bold"
+            app:pinBackgroundDrawable="@drawable/edittext" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/otp_code_login"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="55dp"
+            android:fontFamily="@font/mulish"
+            android:gravity="center"
+            android:text="Enter the code sent to "
+            android:textColor="@color/colorTextabu"
+            android:textFontWeight="400"
+            android:textSize="18dp" />
+
+        <Button
+            android:id="@+id/btn_sendcode"
+            android:layout_width="365dp"
+            android:layout_height="73dp"
+            android:layout_below="@+id/time"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button"
+            android:fontFamily="@font/mulish"
+            android:text="Send Code"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textFontWeight="600"
+            android:textSize="19dp" />
 
 
-        </RelativeLayout>
+    </RelativeLayout>
 
-    </ScrollView>
 </RelativeLayout>

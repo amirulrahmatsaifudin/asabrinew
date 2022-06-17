@@ -56,6 +56,7 @@
                 android:drawablePadding="20dp"
                 android:hint="Name"
                 android:paddingLeft="18dp" />
+
             <EditText
                 android:id="@+id/edit_text_mobile_number"
                 android:layout_width="362.94dp"
@@ -69,6 +70,7 @@
                 android:hint="Mobile Number"
                 android:inputType="phone"
                 android:paddingLeft="18dp" />
+
             <EditText
                 android:id="@+id/edit_text_retirement_number"
                 android:layout_width="362.94dp"
@@ -80,7 +82,9 @@
                 android:drawableStart="@drawable/ic_pesan"
                 android:drawablePadding="20dp"
                 android:hint="Retirement Number"
-                android:paddingLeft="18dp" />
+                android:paddingLeft="18dp"
+                android:maxLength="9"/>
+
             <EditText
                 android:id="@+id/et_NIK"
                 android:layout_width="362.94dp"
@@ -130,6 +134,7 @@
                 android:drawableStart="@drawable/ic_home"
                 android:drawablePadding="20dp"
                 android:hint="Alamat Lahir"
+                android:minEms="8"
                 android:paddingLeft="18dp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -152,7 +157,8 @@
                     android:drawablePadding="20dp"
                     android:hint="Password"
                     android:inputType="textPassword"
-                    android:paddingLeft="18dp" />
+                    android:paddingLeft="18dp"
+                    android:minEms="8"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputlayout2"

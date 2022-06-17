@@ -22,20 +22,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Base64;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.Toast;
 import com.example.asabri.R;
 import com.example.asabri.activity.otp.OtpActivity;
 import com.example.asabri.api.ApiService;
 import com.example.asabri.api.RetrofitBuilder;
-import com.example.asabri.api.TokenManager;
 import com.example.asabri.model.GetResponseToken;
+import com.example.asabri.util.ImageResizer;
 import com.google.common.util.concurrent.ListenableFuture;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -57,7 +55,6 @@ public class Registrasi3Activity extends AppCompatActivity {
     private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA", "android.permission.WRITE_EXTERNAL_STORAGE"};
 
     PreviewView mPreviewView;
-    ImageView mImageView;
     Button captureImage;
 
     private ApiService service;
@@ -119,39 +116,52 @@ public class Registrasi3Activity extends AppCompatActivity {
 
         captureImage.setOnClickListener(v -> {
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
-            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpg");
+            File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpeg");
             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
                 @Override
                 public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                     new Handler(Looper.getMainLooper()).post(() -> {
-                     //   RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-file"),file);
-                        //  MultipartBody.Part image = MultipartBody.Part.createFormData("image",file.getName(),requestFile);
+                        Bitmap fullSizeBitmap = BitmapFactory.decodeFile(file.getPath());
+                        Bitmap reducedBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 800);
+                        File reducedFile = getBitmapfile(reducedBitmap);
+
+//                        Bitmap bitmap = Bitmap.createScaledBitmap(bm, 800, 800, true);
+
+                         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),reducedFile);
+                         MultipartBody.Part image = MultipartBody.Part.createFormData("image",reducedFile.getName(),requestFile);
 
                         Intent intent = getIntent();
-                        String name = intent.getStringExtra("name");
-                        String mobile_number = intent.getStringExtra("mobile_number");
-                        String retirement_number = intent.getStringExtra("retirement_number");
-                        String nik_number = intent.getStringExtra("nik_number");
-                        String address = intent.getStringExtra("address");
-                        String date_of_birth = intent.getStringExtra("date_of_birth");
-                        String place_of_birth = intent.getStringExtra("place_of_birth");
-                        String password = intent.getStringExtra("password");
-                        String password_confirmation = intent.getStringExtra("password_confirmation");
+                        String nameone = intent.getStringExtra("name");
+                        String mobile_numberone = intent.getStringExtra("mobile_number");
+                        String retirement_numberone = intent.getStringExtra("retirement_number");
+                        String nik_numberone = intent.getStringExtra("nik_number");
+                        String addressone = intent.getStringExtra("address");
+                        String date_of_birthone = intent.getStringExtra("date_of_birth");
+                        String place_of_birthone = intent.getStringExtra("place_of_birth");
+                        String imagebase64one = intent.getStringExtra("name");
+                        String passwordone = intent.getStringExtra("password");
+                        String password_confirmationone = intent.getStringExtra("password_confirmation");
 
-                        Bitmap bm = BitmapFactory.decodeFile(file.getName());
-                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                        bm.compress(Bitmap.CompressFormat.JPEG, 1000, baos);
-                        byte[] b = baos.toByteArray();
-                        String imagebase64 = Base64.encodeToString(b, Base64.DEFAULT);
+                        RequestBody name = RequestBody.create(MediaType.parse("multipart/form-data"),nameone);
+                        RequestBody mobile_number = RequestBody.create(MediaType.parse("multipart/form-data"),mobile_numberone);
+                        RequestBody retirement_number = RequestBody.create(MediaType.parse("multipart/form-data"),retirement_numberone);
+                        RequestBody nik_number = RequestBody.create(MediaType.parse("multipart/form-data"),nik_numberone);
+                        RequestBody address = RequestBody.create(MediaType.parse("multipart/form-data"),addressone);
+                        RequestBody date_of_birth = RequestBody.create(MediaType.parse("multipart/form-data"),date_of_birthone);
+                        RequestBody place_of_birth = RequestBody.create(MediaType.parse("multipart/form-data"),place_of_birthone);
+                        RequestBody imagebase64 = RequestBody.create(MediaType.parse("multipart/form-data"),imagebase64one);
+                        RequestBody password = RequestBody.create(MediaType.parse("multipart/form-data"),passwordone);
+                        RequestBody password_confirmation = RequestBody.create(MediaType.parse("multipart/form-data"),password_confirmationone);
 
-                        call = service.crete_user(name, mobile_number, retirement_number, nik_number, address, date_of_birth, place_of_birth, imagebase64, password, password_confirmation);
+                        call = service.crete_user(name, mobile_number, retirement_number, nik_number, address, date_of_birth, place_of_birth, image, imagebase64, password, password_confirmation);
                         call.enqueue(new Callback<GetResponseToken>() {
                             @Override
                             public void onResponse(Call<GetResponseToken> call, Response<GetResponseToken> response) {
                                 if (response.isSuccessful()) {
-                                    Toast.makeText(Registrasi3Activity.this, "sukses", Toast.LENGTH_SHORT).show();
-                                    Intent intentToOtp = new Intent(Registrasi3Activity.this, RegistrasiSuccesActivity.class);
+                                    Toast.makeText(Registrasi3Activity.this, "Succes", Toast.LENGTH_SHORT).show();
+                                    Intent intentToOtp = new Intent(Registrasi3Activity.this, OtpActivity.class);
+                                    intent.putExtra("mobile_number", mobile_numberone);
                                     startActivity(intentToOtp);
                                 }
                             }
@@ -171,7 +181,6 @@ public class Registrasi3Activity extends AppCompatActivity {
             });
         });
     }
-
     public String getBatchDirectoryName() {
         String app_folder_path = "";
         app_folder_path = Environment.getExternalStorageDirectory().toString() + "/images";
@@ -180,7 +189,6 @@ public class Registrasi3Activity extends AppCompatActivity {
         }
         return app_folder_path;
     }
-
     private boolean allPermissionsGranted(){
         for(String permission : REQUIRED_PERMISSIONS){
             if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
@@ -201,4 +209,21 @@ public class Registrasi3Activity extends AppCompatActivity {
             }
         }
     }
+    private File getBitmapfile (Bitmap reducedBitmap){
+        File filee = new File(Environment.getExternalStorageDirectory()+File.separator + "reduced_file");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+      reducedBitmap.compress(Bitmap.CompressFormat.JPEG, 0, baos);
+      byte[] bitmapdata = baos.toByteArray();
+      try {
+          filee.createNewFile();
+          FileOutputStream fos = new FileOutputStream(filee);
+          fos.write(bitmapdata);
+          fos.flush();
+          fos.close();
+          return filee;
+      }catch (Exception e){
+          e.printStackTrace();
+      }
+      return filee;
+  }
 }

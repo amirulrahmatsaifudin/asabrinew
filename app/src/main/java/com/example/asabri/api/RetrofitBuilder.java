@@ -24,7 +24,6 @@ public class RetrofitBuilder {
                     Request request = chain.request();
                     Request.Builder builder1 = request.newBuilder()
                             .addHeader("Accept", "application/json")
-                            .addHeader("Content-Type", "application/json")
                             .addHeader("Connection", "close");
 
                     request = builder1.build();

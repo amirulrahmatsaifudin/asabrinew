@@ -36,6 +36,9 @@ public class OtpActivity extends AppCompatActivity {
 
         service = RetrofitBuilder.createService(ApiService.class);
 
+        Intent intent = getIntent();
+        etNumberPhone.setText(intent.getStringExtra("mobile_number"));
+
         btnSendCode.setOnClickListener(v -> {
             String number_phone = etNumberPhone.getText().toString();
 
