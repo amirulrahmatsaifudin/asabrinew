@@ -13,7 +13,7 @@ import retrofit2.http.Part;
 
 public interface ApiService {
 
-        @POST("login")
+        @POST("v1/oauth_mobile/login")
         @FormUrlEncoded
         Call<GetResponseToken> login(
                 @Field("retirement_number") String retirement_number,
@@ -52,12 +52,12 @@ public interface ApiService {
 //                @Field("password_confirmation") String password_confirmation
 //        );
 
-        @POST("refresh")
+        @POST("v1/oauth_mobile/new_access_token")
         @FormUrlEncoded
         Call<AccessToken> refresh(@Field("refresh_token") String refreshToken
         );
 
-        @POST("otp/send_otp_login")
+        @POST("v1/otp/send_otp_login")
         @FormUrlEncoded
         Call<GetResponseToken> sendOtp(
                 @Field("mobile_number") String mobile_number

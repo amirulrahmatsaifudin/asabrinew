@@ -83,4 +83,7 @@ dependencies {
     //otp
     implementation 'com.alimuzaffar.lib:pinentryedittext:1.3.10'
 
+//    //comperes
+//    implementation 'id.zelory:compressor:3.0.0'
+
 }

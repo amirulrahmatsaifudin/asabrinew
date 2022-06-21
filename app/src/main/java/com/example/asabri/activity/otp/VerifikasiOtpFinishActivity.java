@@ -11,5 +11,6 @@ public class VerifikasiOtpFinishActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verifikasi_otp_finish);
+
     }
 }

@@ -18,10 +18,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Base64;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import com.example.asabri.R;
@@ -117,19 +120,33 @@ public class Registrasi3Activity extends AppCompatActivity {
         captureImage.setOnClickListener(v -> {
             SimpleDateFormat mDateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
             File file = new File(getBatchDirectoryName(), mDateFormat.format(new Date())+ ".jpeg");
+
             ImageCapture.OutputFileOptions outputFileOptions = new ImageCapture.OutputFileOptions.Builder(file).build();
             imageCapture.takePicture(outputFileOptions, executor, new ImageCapture.OnImageSavedCallback () {
                 @Override
                 public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                     new Handler(Looper.getMainLooper()).post(() -> {
+
+                        //Use BitmapFactory to load bitmap from path
                         Bitmap fullSizeBitmap = BitmapFactory.decodeFile(file.getPath());
-                        Bitmap reducedBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 800);
-                        File reducedFile = getBitmapfile(reducedBitmap);
+                        //Scala Down To Bitmap
+                        Bitmap reducedBitmap = ImageResizer.reduceBitmapSize(fullSizeBitmap, 640000);
+                      //bitmap
+                        Bitmap resized = Bitmap.createScaledBitmap(reducedBitmap, 400, 400, true);
+                       //roatsi gambar
+                        Matrix matrix = new Matrix();
+                        matrix.postRotate(270);
+                        Bitmap rotatedBitmap = Bitmap.createBitmap(resized, 0, 0, resized.getWidth(), resized.getHeight(), matrix, true);
+                        //Save the scala down bitmap to file
+                        File reducedFile = getBitmapfile(rotatedBitmap);
+//
+//                        Bitmap bm = BitmapFactory.decodeFile(reducedFile.getPath());
+//                        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                        bm.compress(Bitmap.CompressFormat.JPEG, 100, baos); // bm is the bitmap object
+//                        byte[] b = baos.toByteArray();
 
-//                        Bitmap bitmap = Bitmap.createScaledBitmap(bm, 800, 800, true);
-
-                         RequestBody requestFile = RequestBody.create(MediaType.parse("multipart/form-data"),reducedFile);
-                         MultipartBody.Part image = MultipartBody.Part.createFormData("image",reducedFile.getName(),requestFile);
+                        RequestBody requestFile = RequestBody.create(MediaType.parse("image/"),reducedFile);
+                        MultipartBody.Part image = MultipartBody.Part.createFormData("image",reducedFile.getName(),requestFile);
 
                         Intent intent = getIntent();
                         String nameone = intent.getStringExtra("name");
@@ -139,6 +156,7 @@ public class Registrasi3Activity extends AppCompatActivity {
                         String addressone = intent.getStringExtra("address");
                         String date_of_birthone = intent.getStringExtra("date_of_birth");
                         String place_of_birthone = intent.getStringExtra("place_of_birth");
+//                        String imagebase64one = Base64.encodeToString(b, Base64.DEFAULT);
                         String imagebase64one = intent.getStringExtra("name");
                         String passwordone = intent.getStringExtra("password");
                         String password_confirmationone = intent.getStringExtra("password_confirmation");
@@ -154,6 +172,8 @@ public class Registrasi3Activity extends AppCompatActivity {
                         RequestBody password = RequestBody.create(MediaType.parse("multipart/form-data"),passwordone);
                         RequestBody password_confirmation = RequestBody.create(MediaType.parse("multipart/form-data"),password_confirmationone);
 
+//                        Toast.makeText(Registrasi3Activity.this, reducedFile.toString(), Toast.LENGTH_SHORT).show();
+
                         call = service.crete_user(name, mobile_number, retirement_number, nik_number, address, date_of_birth, place_of_birth, image, imagebase64, password, password_confirmation);
                         call.enqueue(new Callback<GetResponseToken>() {
                             @Override
@@ -162,6 +182,7 @@ public class Registrasi3Activity extends AppCompatActivity {
                                     Toast.makeText(Registrasi3Activity.this, "Succes", Toast.LENGTH_SHORT).show();
                                     Intent intentToOtp = new Intent(Registrasi3Activity.this, OtpActivity.class);
                                     intent.putExtra("mobile_number", mobile_numberone);
+//                                    intent.putExtra("picture", reducedFile);
                                     startActivity(intentToOtp);
                                 }
                             }
@@ -181,6 +202,7 @@ public class Registrasi3Activity extends AppCompatActivity {
             });
         });
     }
+
     public String getBatchDirectoryName() {
         String app_folder_path = "";
         app_folder_path = Environment.getExternalStorageDirectory().toString() + "/images";
@@ -189,6 +211,7 @@ public class Registrasi3Activity extends AppCompatActivity {
         }
         return app_folder_path;
     }
+
     private boolean allPermissionsGranted(){
         for(String permission : REQUIRED_PERMISSIONS){
             if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
@@ -210,10 +233,12 @@ public class Registrasi3Activity extends AppCompatActivity {
         }
     }
     private File getBitmapfile (Bitmap reducedBitmap){
-        File filee = new File(Environment.getExternalStorageDirectory()+File.separator + "reduced_file");
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-      reducedBitmap.compress(Bitmap.CompressFormat.JPEG, 0, baos);
-      byte[] bitmapdata = baos.toByteArray();
+      SimpleDateFormat DateFormat = new SimpleDateFormat("yyyyMMddHHmmss", Locale.US);
+      File filee = new File(getBatchDirectoryName(), DateFormat.format(new Date())+ ".JPEG");
+//      File filee = new File ( Environment.getExternalStorageDirectory()+File.separator+"reduced_file");
+      ByteArrayOutputStream bos = new ByteArrayOutputStream();
+      reducedBitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+      byte[] bitmapdata = bos.toByteArray();
       try {
           filee.createNewFile();
           FileOutputStream fos = new FileOutputStream(filee);
@@ -224,6 +249,9 @@ public class Registrasi3Activity extends AppCompatActivity {
       }catch (Exception e){
           e.printStackTrace();
       }
+
       return filee;
   }
+
+
 }
