@@ -29,6 +29,9 @@ public class RegistrasiSuccesActivity extends AppCompatActivity {
         Button submite11 = (Button) findViewById(R.id.btn_submite11);
         image.setImageBitmap(bmp);
 
+        Intent intent = getIntent();
+        String mobile_number = intent.getStringExtra("mobile_number");
+
         submite11.setOnClickListener(v -> startActivity(new Intent(RegistrasiSuccesActivity.this, OtpActivity.class)));
     }
 }

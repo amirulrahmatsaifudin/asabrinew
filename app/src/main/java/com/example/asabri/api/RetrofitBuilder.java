@@ -23,7 +23,7 @@ public class RetrofitBuilder {
                 .addInterceptor(chain -> {
                     Request request = chain.request();
                     Request.Builder builder1 = request.newBuilder()
-                            .addHeader("Accept", "multipart/form-data")
+                            .addHeader("Accept", "application/json")
                             .addHeader("Connection", "close");
 
                     request = builder1.build();
@@ -65,4 +65,6 @@ public class RetrofitBuilder {
     public static Retrofit getRetrofit() {
         return retrofit;
     }
+
+
 }

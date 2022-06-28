@@ -18,8 +18,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-
         android:layout_below="@+id/logo"
+        android:layout_alignParentBottom="true"
         android:layout_marginTop="150dp"
         android:background="@drawable/toolbar_bawah">
 
@@ -36,7 +36,6 @@
             android:id="@+id/judul"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/et_email"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="48dp"
             android:fontFamily="@font/mulish"
@@ -60,7 +59,7 @@
             android:textSize="18dp" />
 
         <TextView
-            android:id="@+id/nohp"
+            android:id="@+id/nohp1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textbody"
@@ -69,15 +68,58 @@
             android:layout_marginBottom="40dp"
             android:fontFamily="@font/mulish"
             android:gravity="center"
+            android:text="08"
             android:textColor="#000000"
             android:textFontWeight="400"
             android:textSize="18dp" />
 
+<!--        <LinearLayout-->
+<!--            android:id="@+id/input"-->
+<!--            android:layout_below="@+id/textbody"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="78dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginBottom="126dp"-->
+<!--            android:orientation="horizontal">-->
+<!--            <EditText-->
+<!--                android:id="@+id/et_kode1"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:background="@drawable/edittext"-->
+<!--                android:layout_centerHorizontal="true"-->
+
+<!--                />-->
+<!--            <EditText-->
+<!--                android:id="@+id/et_kode2"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:background="@drawable/edittext"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginLeft="12dp"-->
+<!--                />-->
+<!--            <EditText-->
+<!--                android:id="@+id/et_kode3"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:background="@drawable/edittext"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginLeft="12dp"-->
+<!--                />-->
+<!--            <EditText-->
+<!--                android:id="@+id/et_kode4"-->
+<!--                android:layout_width="55dp"-->
+<!--                android:layout_height="55dp"-->
+<!--                android:background="@drawable/edittext"-->
+<!--                android:layout_centerHorizontal="true"-->
+<!--                android:layout_marginLeft="12dp"-->
+<!--                />-->
+<!--        </LinearLayout>-->
         <com.alimuzaffar.lib.pin.PinEntryEditText
-            android:id="@+id/otp_code_login"
+            android:id="@+id/otplogin"
             android:layout_width="256dp"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/nohp"
+            android:layout_below="@+id/nohp1"
             android:layout_centerHorizontal="true"
             android:cursorVisible="false"
             android:digits="1234567890"
@@ -90,25 +132,24 @@
             android:textStyle="bold"
             app:pinBackgroundDrawable="@drawable/edittext" />
 
-        <TextView
-            android:id="@+id/time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/otp_code_login"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="55dp"
-            android:fontFamily="@font/mulish"
-            android:gravity="center"
-            android:text="Enter the code sent to "
-            android:textColor="@color/colorTextabu"
-            android:textFontWeight="400"
-            android:textSize="18dp" />
+<!--        <TextView-->
+<!--            android:id="@+id/time"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/otp_code_login"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="55dp"-->
+<!--            android:fontFamily="@font/mulish"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Enter the code sent to "-->
+<!--            android:textColor="@color/colorTextabu"-->
+<!--            android:textFontWeight="400"-->
+<!--            android:textSize="18dp" />-->
 
         <Button
-            android:id="@+id/btn_sendcode"
+            android:id="@+id/btn_sendcode1"
             android:layout_width="365dp"
             android:layout_height="73dp"
-            android:layout_below="@+id/time"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"

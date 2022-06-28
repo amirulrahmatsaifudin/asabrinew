@@ -47,15 +47,15 @@ public class RegistrasiActivity extends AppCompatActivity {
     private void initComponent() {
         etName = findViewById(R.id.edit_text_name);
         etMobileNumber = findViewById(R.id.edit_text_mobile_number);
-        etMobileNumber.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+       // etMobileNumber.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
+      //  etMobileNumber.setText(String.format("+62%s",getIntent().getStringExtra("mobile_phone")));
         etRetrimentNumber = findViewById(R.id.edit_text_retirement_number);
-        etktp = findViewById(R.id.et_NIK);
+        etktp = findViewById(R.id.et_NIK1);
         etttl = findViewById(R.id.et_TTL);
         datapikerdate();
         ettempat = findViewById(R.id.et_Tempat);
         etalamat = findViewById(R.id.et_Alamat);
         etkatasandi = findViewById(R.id.et_katasandi);
-
         etkatasandi2 = findViewById(R.id.et_katasandi2);
         btnregist = findViewById(R.id.btn_regist);
     }
@@ -95,7 +95,7 @@ public class RegistrasiActivity extends AppCompatActivity {
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
                 TextView tanggal = findViewById(R.id.et_TTL);
-                String myFormat = "dd-MMMM-yyyy";
+                String myFormat = "dd-MM-yyyy";
                 SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
                 tanggal.setText(sdf.format(myCalendar.getTime()));
             }

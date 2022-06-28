@@ -10,8 +10,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@+id/logo"
-            android:layout_marginTop="115dp"
+             android:layout_marginTop="115dp"
             android:background="@drawable/toolbar_bawah">
             <ImageView
                 android:id="@+id/line"
@@ -22,45 +21,45 @@
                 android:layout_marginBottom="50dp"
                 android:layout_centerHorizontal="true"
                 />
+
             <TextView
                 android:id="@+id/judul"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/textbody11"
                 android:layout_centerHorizontal="true"
-                android:text="Verify Phone"
-                android:textSize="28dp"
-                android:textFontWeight="500"
-                android:textColor="@color/biru"
-                android:fontFamily="@font/mulish"
                 android:layout_marginTop="48dp"
-                android:layout_above="@+id/et_email"/>
+                android:fontFamily="@font/mulish"
+                android:text="Congratulations!"
+                android:textColor="@color/biru"
+                android:textFontWeight="500"
+                android:textSize="28dp" />
+
             <TextView
-                android:layout_below="@+id/judul"
-                android:id="@+id/textbody"
+                android:id="@+id/textbody11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_above="@+id/btn_gohome"
                 android:layout_centerHorizontal="true"
-                android:text="Enter the code sent to "
-                android:textSize="18dp"
-                android:gravity="center"
-                android:textFontWeight="400"
-                android:textColor="@color/colorTextabu"
-                android:fontFamily="@font/mulish"
                 android:layout_marginTop="28dp"
-                android:layout_above="@+id/et_email"/>
+                android:layout_marginBottom="31dp"
+                android:fontFamily="@font/mulish"
+                android:gravity="center"
+                android:text="Your account is ready to use, you will be \n redirected to setup account page in few seconds.."
+                android:textColor="@color/colorTextabu"
+                android:textFontWeight="400"
+                android:textSize="18dp" />
 
 
             <Button
-                android:id="@+id/btn_phone1"
+                android:id="@+id/btn_gohome"
                 android:layout_width="365dp"
                 android:layout_height="73dp"
-                android:layout_below="@+id/input"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="500dp"
                 android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:background="@drawable/button"
                 android:fontFamily="@font/mulish"
-                android:text="Send Code"
+                android:text="Finish , le’ts go to home"
                 android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textFontWeight="600"

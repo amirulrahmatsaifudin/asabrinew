@@ -77,7 +77,10 @@
             android:textSize="19dp"
             />
 
-
+        <include
+            android:id="@+id/progress_bar_regist"
+            android:visibility="gone"
+            layout="@layout/layout_progress_bar_login"/>
 
 
 </RelativeLayout>

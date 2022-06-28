@@ -44,6 +44,7 @@
                 android:textColor="@color/biru"
                 android:textFontWeight="500"
                 android:textSize="28dp" />
+
             <EditText
                 android:id="@+id/edit_text_name"
                 android:layout_width="362.94dp"
@@ -68,7 +69,6 @@
                 android:drawableStart="@drawable/ic_pesan"
                 android:drawablePadding="20dp"
                 android:hint="Mobile Number"
-                android:inputType="phone"
                 android:paddingLeft="18dp" />
 
             <EditText
@@ -82,11 +82,11 @@
                 android:drawableStart="@drawable/ic_pesan"
                 android:drawablePadding="20dp"
                 android:hint="Retirement Number"
-                android:paddingLeft="18dp"
-                android:maxLength="9"/>
+                android:maxLength="9"
+                android:paddingLeft="18dp" />
 
             <EditText
-                android:id="@+id/et_NIK"
+                android:id="@+id/et_NIK1"
                 android:layout_width="362.94dp"
                 android:layout_height="55dp"
                 android:layout_below="@id/edit_text_retirement_number"
@@ -96,12 +96,13 @@
                 android:drawableStart="@drawable/ic_profile"
                 android:drawablePadding="20dp"
                 android:hint="NIK KTP"
+                android:maxLength="16"
                 android:paddingLeft="18dp" />
             <EditText
                 android:id="@+id/et_Tempat"
                 android:layout_width="362.94dp"
                 android:layout_height="55dp"
-                android:layout_below="@+id/et_NIK"
+                android:layout_below="@+id/et_NIK1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
                 android:background="@drawable/edittext"

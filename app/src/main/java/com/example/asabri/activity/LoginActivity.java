@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button btnlogin;
     private ImageButton btnfaceid;
     private TextView tvforgot, tvsignup;
-    boolean passwordvisable;
+
     private View mProgressBar;
     private ProgressBar mCycleProgressBar;
 

@@ -4,6 +4,8 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class AccessToken {
+
+
     @SerializedName("token")
     @Expose
     private String token;
@@ -13,6 +15,7 @@ public class AccessToken {
     @SerializedName("msg")
     @Expose
     private String msg;
+
 
     public String getToken() {
         return token;
@@ -37,4 +40,5 @@ public class AccessToken {
     public String getMsg() {
         return msg;
     }
+
 }
